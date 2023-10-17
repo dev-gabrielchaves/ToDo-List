@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Home</title>
 </head>
 <body>
-    <h1>ToDo App</h1>
-    <a href="/add">Add Item</a>
-    <table>
+    <h1 style="text-align: center;">ToDo App</h1>
+    <a href="/add"><button type="button" class="btn btn-secondary">Add Item</button></a>
+    <table class="table">
         {% for document in documents %}
         <thead>
             <tr>
-                <th>{{document.get('Title')}}</th>
+                <th class="text-center">{{document.get('Title')}}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{document.get('Description')}}</td>
+                <td class="text-center">{{document.get('Description')}}</td>
             </tr>
             <tr>
-                <td>{{document.get('Status')}} | 
+                <td class="text-center">{{document.get('Status')}} | 
                     {% if document.get('Status') == 'Undone' %}
                     <a href="/mark_as_done/{{document.get('_id')}}">Mark as Done</a>
                     {% else %}
@@ -29,8 +30,9 @@
                 </td>
             </tr>
             <tr>
-                <td><a href="/update/{{document.get('_id')}}">Update</a> | 
-                <a href="/delete/{{document.get('_id')}}">Delete</a></td>
+                <td class="text-center"><a href="/update/{{document.get('_id')}}">Update</a> | 
+                <a href="/delete/{{document.get('_id')}}">Delete</a>
+                </td>
             </tr>      
         </tbody>
         {% endfor %}
