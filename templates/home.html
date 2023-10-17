@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>ToDo App</h1>
+    <a href="/add">Add Item</a>
+    <table>
+        {% for document in documents %}
+        <thead>
+            <tr>
+                <th>{{document.get('Title')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{document.get('Description')}}</td>
+            </tr>
+            <tr>
+                <td>{{document.get('Status')}}</td>
+            </tr>
+            <tr>
+                <td><a href="/update/{{document.get('_id')}}">Update | </a></td>
+                <td><a href="/delete/{{document.get('_id')}}">Delete</a></td>
+            </tr>      
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>
