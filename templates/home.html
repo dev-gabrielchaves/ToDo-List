@@ -20,11 +20,17 @@
                 <td>{{document.get('Description')}}</td>
             </tr>
             <tr>
-                <td>{{document.get('Status')}}</td>
+                <td>{{document.get('Status')}} | 
+                    {% if document.get('Status') == 'Undone' %}
+                    <a href="/mark_as_done/{{document.get('_id')}}">Mark as Done</a>
+                    {% else %}
+                    <a href="/mark_as_undone/{{document.get('_id')}}">Mark as Undone</a>
+                    {% endif %}
+                </td>
             </tr>
             <tr>
-                <td><a href="/update/{{document.get('_id')}}">Update | </a></td>
-                <td><a href="/delete/{{document.get('_id')}}">Delete</a></td>
+                <td><a href="/update/{{document.get('_id')}}">Update</a> | 
+                <a href="/delete/{{document.get('_id')}}">Delete</a></td>
             </tr>      
         </tbody>
         {% endfor %}

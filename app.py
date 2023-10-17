@@ -26,7 +26,10 @@ def add():
 @app.route('/update/<id>', methods=['GET', 'POST'])
 def update(id):
     if request.method == 'GET':
-        return render_template('update.html', id= id)
+        old_todo = collection.find_one({'_id':ObjectId(str(id))})
+        old_title = old_todo.get('Title')
+        old_description = old_todo.get('Description')
+        return render_template('update.html', id= id, old_title= old_title, old_description= old_description)
     elif request.method == 'POST':
         title =  request.form['title']
         description = request.form['description']
@@ -36,6 +39,16 @@ def update(id):
 @app.route('/delete/<id>')
 def delete(id):
     collection.delete_one({'_id': ObjectId(str(id))})
+    return redirect('/')
+
+@app.route('/mark_as_done/<id>')
+def mark_as_done(id):
+    collection.update_one({'_id': ObjectId(str(id))}, {'$set': {'Status': 'Done'}})
+    return redirect('/')
+
+@app.route('/mark_as_undone/<id>')
+def mark_as_undone(id):
+    collection.update_one({'_id': ObjectId(str(id))}, {'$set': {'Status': 'Undone'}})
     return redirect('/')
 
 if __name__ == '__main__':

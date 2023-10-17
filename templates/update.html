@@ -8,8 +8,8 @@
 <body>
     <h1>Update Page</h1>
     <form action="/update/{{id}}" method="post">
-        <input type="text" name="title" id="title" placeholder="Title...">
-        <input type="text" name="description" id="description" placeholder="Description...">
+        <input type="text" name="title" id="title" placeholder="Title..." value="{{old_title}}">
+        <input type="text" name="description" id="description" placeholder="Description..." value="{{old_description}}">
         <button type="submit">Submit</button>
     </form>
 </body>
