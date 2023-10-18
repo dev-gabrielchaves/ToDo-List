@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Update</title>
 </head>
 <body>
-    <h1>Update Page</h1>
+    <h1 style="text-align: center; font-style: italic;">Update Task</h1>
+    <br/>
     <form action="/update/{{id}}" method="post">
-        <input type="text" name="title" id="title" placeholder="Title..." value="{{old_title}}">
-        <input type="text" name="description" id="description" placeholder="Description..." value="{{old_description}}">
-        <button type="submit">Submit</button>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Title..." value="{{old_title}}">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="description" id="description" placeholder="Description..." value="{{old_description}}">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
     </form>
 </body>
 </html>

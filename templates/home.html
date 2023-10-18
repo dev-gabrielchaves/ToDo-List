@@ -7,9 +7,9 @@
     <title>Home</title>
 </head>
 <body>
-    <h1 style="text-align: center;">ToDo App</h1>
-    <a href="/add"><button type="button" class="btn btn-secondary">Add Item</button></a>
-    <table class="table">
+    <h1 style="text-align: center; font-style: italic;">ToDo List</h1>
+    <br/>
+    <table class="table table-dark table-striped">
         {% for document in documents %}
         <thead>
             <tr>
@@ -37,5 +37,6 @@
         </tbody>
         {% endfor %}
     </table>
+    <a href="/add"><button type="button" class="btn btn-secondary">Add Item</button></a>
 </body>
 </html>
